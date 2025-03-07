@@ -74,10 +74,10 @@ print("✅ Document Inserted with Vector Embedding!")
 ```
 📌 Step 3: Run Hybrid Vector Search with Filters
 Searches by vector similarity using the new index structure.
-Filters by genre (Healthcare) and year (>= 2023).
+Filters by policy (Healthcare) and year (>= 2023).
 ```
 def search_documents(user_query):
-    """Perform vector search with metadata filtering"""
+    """Perform vector search with metadata filtering on benefit documents"""
     user_embedding = generate_embedding(user_query)
 
     results = collection.aggregate([
@@ -91,13 +91,22 @@ def search_documents(user_query):
         },
         {
             "$match": {
-                "genres": "Healthcare",  # Filter by genre
-                "year": {"$gte": 2023}  # Only show results from 2023 and later
+                "document_type": {"$in": ["policy", "coverage_details"]},  # Only relevant doc types
+                "plan_tier": {"$in": ["Gold", "Silver"]},  # Prioritize higher-tier plans
+                "effective_date": {"$gte": "2023-01-01"}  # Only show active policies
             }
         }
     ])
 
     return list(results)
+```
+# Example Query
+query = "Does my Silver plan cover mental health services?"
+matching_docs = search_documents(query)
+
+for doc in matching_docs:
+    print(f"🔹 Found Document: {doc['text']}")
+
 ```
 # Example Query
 ```
