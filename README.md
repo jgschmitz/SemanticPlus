@@ -100,11 +100,13 @@ def search_documents(user_query):
     return list(results)
 ```
 # Example Query
+```
 query = "What are the benefits of this healthcare policy?"
 matching_docs = search_documents(query)
 
 for doc in matching_docs:
     print(f"🔹 Found Document: {doc['text']}")
+```
 🔹 This method optimizes results by applying both vector search + metadata filtering.
 
 📌 Step 4: Use Vector Search for a Chatbot (Full RAG Pipeline)
