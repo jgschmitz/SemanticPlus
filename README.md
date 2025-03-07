@@ -101,6 +101,7 @@ def search_documents(user_query):
     return list(results)
 ```
 # Example Query
+```
 query = "Does my Silver plan cover mental health services?"
 matching_docs = search_documents(query)
 
