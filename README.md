@@ -35,8 +35,10 @@ vector_index = {
 }
 ```
 # Create the index
+```
 db.command("createSearchIndexes", collection.name, indexes=[vector_index])
 print("✅ Vector Search Index Created Successfully!")
+```
 🔹 Now MongoDB Vector Search is properly configured using the new vector type.
 
 📌 Step 2: Insert Documents with Vector Embeddings
