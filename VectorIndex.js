@@ -7,7 +7,7 @@
       "type": "vector"
     },
     {
-      "path": "genres",
+      "path": "policy",
       "type": "filter"
     },
     {
