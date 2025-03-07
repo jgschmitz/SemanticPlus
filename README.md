@@ -1,4 +1,4 @@
-📌 Step 1: Create a Vector Search Index (Updated)
+📌 Step 1: Create a Vector Search Index (you can also create the index in the atlas gui)
 This index includes: ✅ Vector Search (plot_embedding) using Euclidean distance
 ✅ Filters (genres, year) for refining search results
 ```
